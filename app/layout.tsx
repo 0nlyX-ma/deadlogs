@@ -41,7 +41,7 @@ export default function RootLayout({
       lang="en"
       className={`dark ${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}
     >
-      <body className="bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden">
+      <body className="bg-black text-white font-sans selection:bg-purple-400/30 overflow-x-hidden">
         {children}
         <Toaster
           position="bottom-right"

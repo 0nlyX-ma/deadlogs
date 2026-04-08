@@ -4,91 +4,104 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * {
-    @apply border-outline-variant;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply bg-surface text-on-surface font-body antialiased;
-    background-color: #000000;
-  }
-
-  ::selection {
-    background-color: rgba(209, 162, 254, 0.3);
-    color: #ffffff;
-  }
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 6%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 6%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 269 92% 82%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 269 100% 75%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 269 92% 82%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 351 100% 72%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 269 92% 82%;
+  --radius: 0.75rem;
 }
 
-@layer components {
-  /* Glass Card Effect */
-  .glass-card {
-    background: rgba(15, 15, 15, 0.6);
-    backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-  }
+* {
+  border-color: hsl(var(--border));
+}
 
-  /* Hero Glow */
-  .hero-glow {
-    background: radial-gradient(circle, rgba(209, 162, 254, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
-  }
+html {
+  scroll-behavior: smooth;
+}
 
-  /* Text Gradient */
-  .text-gradient {
-    background: linear-gradient(to bottom right, #ffffff 30%, #d1a2fe 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+body {
+  background-color: #000000;
+  color: hsl(var(--foreground));
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  /* Button Glow */
-  .button-glow {
-    box-shadow: 0 0 40px rgba(209, 162, 254, 0.4);
-  }
+::selection {
+  background-color: rgba(209, 162, 254, 0.3);
+  color: #ffffff;
+}
 
-  /* Inner Glow Effects */
-  .inner-glow-primary {
-    box-shadow: inset 0 0 20px rgba(209, 162, 254, 0.05);
-  }
+/* Glass Card Effect */
+.glass-card {
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
 
-  .inner-glow-error {
-    box-shadow: inset 0 0 20px rgba(255, 110, 132, 0.05);
-  }
+/* Hero Glow */
+.hero-glow {
+  background: radial-gradient(circle, rgba(209, 162, 254, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+}
 
-  /* Glow Badges */
-  .glow-badge-error {
-    box-shadow: 0 0 15px rgba(255, 110, 132, 0.2);
-  }
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(to bottom right, #ffffff 30%, #d1a2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-  .glow-badge-primary {
-    box-shadow: 0 0 15px rgba(209, 162, 254, 0.2);
-  }
+/* Button Glow */
+.button-glow {
+  box-shadow: 0 0 40px rgba(209, 162, 254, 0.4);
+}
 
-  .glow-badge-secondary {
-    box-shadow: 0 0 15px rgba(190, 130, 255, 0.2);
-  }
+/* Inner Glow Effects */
+.inner-glow-primary {
+  box-shadow: inset 0 0 20px rgba(209, 162, 254, 0.05);
+}
 
-  /* Aether Glass */
-  .aether-glass {
-    background: rgba(15, 15, 15, 0.6);
-    backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-  }
+.inner-glow-error {
+  box-shadow: inset 0 0 20px rgba(255, 110, 132, 0.05);
+}
 
-  /* Reveal Animation */
-  .reveal-on-scroll {
-    opacity: 0;
-  }
+/* Glow Badges */
+.glow-badge-error {
+  box-shadow: 0 0 15px rgba(255, 110, 132, 0.2);
+}
 
-  .reveal-on-scroll.active {
-    animation: fadeUp 0.8s ease-out forwards;
-  }
+.glow-badge-primary {
+  box-shadow: 0 0 15px rgba(209, 162, 254, 0.2);
+}
+
+.glow-badge-secondary {
+  box-shadow: 0 0 15px rgba(190, 130, 255, 0.2);
+}
+
+/* Aether Glass */
+.aether-glass {
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
 }
 
 /* Scrollbar Styling */
@@ -107,4 +120,25 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #3d3d3d;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(209, 162, 254, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(209, 162, 254, 0.5);
+  }
 }

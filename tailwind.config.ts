@@ -47,10 +47,11 @@ const config: Config = {
         foreground: "#f2f2f2",
       },
       fontFamily: {
-        headline: ["Space Grotesk", "sans-serif"],
-        body: ["Inter", "sans-serif"],
-        label: ["Inter", "sans-serif"],
-        mono: ["IBM Plex Mono", "monospace"],
+        sans: ["var(--font-body)", "Inter", "sans-serif"],
+        headline: ["var(--font-headline)", "Space Grotesk", "sans-serif"],
+        body: ["var(--font-body)", "Inter", "sans-serif"],
+        label: ["var(--font-body)", "Inter", "sans-serif"],
+        mono: ["var(--font-mono)", "IBM Plex Mono", "monospace"],
       },
       borderRadius: {
         DEFAULT: "0.25rem",
