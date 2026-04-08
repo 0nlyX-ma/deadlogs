@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#8f4bd3",
+                    "primary-container": "#4a2375",
+                    "on-primary-container": "#f2deff",
+                    "surface": "#000000",
+                    "surface-variant": "#1a1025",
+                    "on-surface": "#f2deff",
+                    "on-surface-variant": "#bd9fd7",
+                    "outline": "#3d2b4f",
+                    "outline-variant": "#2a1a36",
+                    "error": "#ff6e84",
+                    "secondary": "#be82ff",
+                    "tertiary": "#d8b1ff",
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1rem",
+                    "3xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk", "sans-serif"],
+                    "body": ["Manrope", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            },
+            "animation": {
+                "fade-up": "fadeUp 0.8s ease-out forwards",
+                "pulse-slow": "pulse-slow 8s infinite ease-in-out",
+            },
+            "keyframes": {
+                fadeUp: {
+                    "0%": { opacity: "0", transform: "translateY(20px)" },
+                    "100%": { opacity: "1", transform: "translateY(0)" }
+                },
+                "pulse-slow": {
+                    "0%, 100%": { opacity: "0.3", transform: "scale(1) translate(-50%, -50%)" },
+                    "50%": { opacity: "0.6", transform: "scale(1.1) translate(-50%, -45%)" }
+                }
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(26, 16, 37, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(143, 75, 211, 0.15);
+        }
+        .hero-glow {
+            background: radial-gradient(circle, rgba(143, 75, 211, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+        .text-gradient {
+            background: linear-gradient(to bottom right, #ffffff 30%, #8f4bd3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .button-glow {
+            box-shadow: 0 0 40px rgba(143, 75, 211, 0.4);
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+        }
+        .reveal-on-scroll.active {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+        body {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-2xl border-b border-white/5 flex justify-between items-center px-8 py-5">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-bold tracking-tighter text-white font-headline">Deadlog</span>
+<div class="hidden md:flex gap-8 font-headline text-sm tracking-tight text-on-surface-variant/80">
+<a class="hover:text-white transition-colors" href="#">Product</a>
+<a class="hover:text-white transition-colors" href="#">Pricing</a>
+<a class="hover:text-white transition-colors" href="#">Changelog</a>
+<a class="hover:text-white transition-colors" href="#">Docs</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant/80 hover:text-white transition-colors font-headline text-sm tracking-tight active:scale-95 duration-200">Login</button>
+<button class="bg-primary text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm tracking-tight active:scale-95 duration-200 hover:brightness-110 transition-all">Launch Dashboard</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden">
+<!-- Animated Glow/Aura -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] hero-glow animate-pulse-slow pointer-events-none blur-[120px]"></div>
+<!-- Horizon Line Effect (Ref Image 3) -->
+<div class="absolute bottom-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+<div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-primary/10 to-transparent"></div>
+<div class="relative z-10 max-w-5xl px-8 text-center animate-fade-up">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-label font-bold uppercase tracking-[0.2em] mb-10">
+            Secure Browser-Based Analysis
+        </span>
+<h1 class="font-headline text-6xl md:text-8xl lg:text-[100px] font-bold tracking-tighter leading-[0.9] mb-10 text-gradient">
+            Find Dead API Endpoints Costing You Money
+        </h1>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl mx-auto mb-16 leading-relaxed opacity-80">
+            Analyze millions of lines of logs in seconds without your data ever leaving your browser. Private, fast, and surgical.
+        </p>
+<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+<button class="w-full md:w-auto bg-primary text-white px-12 py-5 rounded-full font-headline font-bold text-lg button-glow hover:scale-105 active:scale-95 transition-all duration-300">
+                Upload Logs
+            </button>
+<button class="w-full md:w-auto border border-white/10 hover:bg-white/5 text-white px-12 py-5 rounded-full font-headline font-bold text-lg backdrop-blur-md transition-all active:scale-95 duration-200">
+                View Demo
+            </button>
+</div>
+</div>
+</section>
+<!-- Dashboard Preview Section -->
+<section class="py-40 px-8 max-w-7xl mx-auto reveal-on-scroll">
+<div class="glass-card rounded-[2rem] p-1.5 shadow-2xl overflow-hidden">
+<div class="bg-black rounded-[1.8rem] overflow-hidden">
+<!-- Mock Dashboard Header -->
+<div class="flex items-center justify-between p-8 border-b border-white/5 bg-white/[0.02]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<span class="font-headline font-bold text-lg tracking-tight">Log Intelligence Panel</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-1.5 rounded-full bg-error/10 border border-error/20">
+<div class="h-2 w-2 rounded-full bg-error animate-pulse"></div>
+<span class="text-[10px] font-label text-error font-black uppercase tracking-widest">34 Orphaned Endpoints Found</span>
+</div>
+</div>
+<!-- Mock Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white/[0.01] text-on-surface-variant/50 text-[10px] font-label uppercase tracking-[0.2em]">
+<th class="p-6 pl-10 border-b border-white/5">Endpoint</th>
+<th class="p-6 text-center border-b border-white/5">Status</th>
+<th class="p-6 border-b border-white/5">Last Called</th>
+<th class="p-6 border-b border-white/5">Monthly Cost</th>
+<th class="p-6 pr-10 border-b border-white/5">Confidence</th>
+</tr>
+</thead>
+<tbody class="text-sm font-body">
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="p-6 pl-10 font-mono text-primary">/v1/legacy/oauth/callback</td>
+<td class="p-6 text-center">
+<span class="px-3 py-1 rounded-full border border-error/30 text-error text-[9px] font-black uppercase">Inferred Dead</span>
+</td>
+<td class="p-6 text-on-surface-variant/70">424 days ago</td>
+<td class="p-6 font-bold text-on-surface">$1,420.00</td>
+<td class="p-6 pr-10">
+<div class="w-full bg-white/10 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[98%] shadow-[0_0_10px_#8f4bd3]"></div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="p-6 pl-10 font-mono text-primary">/api/internal/debug-logs</td>
+<td class="p-6 text-center">
+<span class="px-3 py-1 rounded-full border border-white/20 text-on-surface-variant text-[9px] font-black uppercase">Zombie</span>
+</td>
+<td class="p-6 text-on-surface-variant/70">12 days ago</td>
+<td class="p-6 font-bold text-on-surface">$890.00</td>
+<td class="p-6 pr-10">
+<div class="w-full bg-white/10 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%] shadow-[0_0_10px_#8f4bd3]"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="py-48 px-8 relative">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-32 reveal-on-scroll">
+<h2 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-8">Optimized Analysis Pipeline</h2>
+<p class="text-on-surface-variant/60 max-w-2xl mx-auto text-lg">From messy logs to actionable cost savings in three precise steps.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<div class="glass-card p-12 rounded-[2.5rem] flex flex-col gap-8 group hover:translate-y-[-12px] transition-all duration-500 reveal-on-scroll" style="transition-delay: 100ms;">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">upload_file</span>
+</div>
+<div>
+<h3 class="font-headline text-3xl font-bold mb-4">1. Upload</h3>
+<p class="text-on-surface-variant/70 font-body leading-relaxed text-lg">Drop your Nginx, Cloudflare, or AWS logs directly. We process chunks locally in your browser memory.</p>
+</div>
+</div>
+<div class="glass-card p-12 rounded-[2.5rem] flex flex-col gap-8 group hover:translate-y-[-12px] transition-all duration-500 reveal-on-scroll" style="transition-delay: 200ms;">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">analytics</span>
+</div>
+<div>
+<h3 class="font-headline text-3xl font-bold mb-4">2. Analyze</h3>
+<p class="text-on-surface-variant/70 font-body leading-relaxed text-lg">Our WASM engine classifies endpoints, detects patterns, and highlights unused logic paths.</p>
+</div>
+</div>
+<div class="glass-card p-12 rounded-[2.5rem] flex flex-col gap-8 group hover:translate-y-[-12px] transition-all duration-500 reveal-on-scroll" style="transition-delay: 300ms;">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">delete_sweep</span>
+</div>
+<div>
+<h3 class="font-headline text-3xl font-bold mb-4">3. Remove</h3>
+<p class="text-on-surface-variant/70 font-body leading-relaxed text-lg">Export a cleanup list or Terraform scripts to safely decommission costly infrastructure.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="py-48 px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<div class="md:col-span-8 glass-card p-16 rounded-[3rem] relative overflow-hidden flex flex-col justify-end min-h-[500px] reveal-on-scroll">
+<div class="absolute inset-0 opacity-10 pointer-events-none p-12">
+<div class="grid grid-cols-4 gap-6 items-end h-full">
+<div class="h-[60%] bg-primary rounded-2xl"></div>
+<div class="h-[40%] bg-primary/60 rounded-2xl"></div>
+<div class="h-[90%] bg-primary rounded-2xl"></div>
+<div class="h-[70%] bg-primary/40 rounded-2xl"></div>
+</div>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline text-4xl font-bold mb-6">Smart Classification</h3>
+<p class="text-on-surface-variant/80 max-w-md text-lg leading-relaxed">Our neural engine automatically groups dynamic paths into logical endpoints for accurate usage tracking.</p>
+</div>
+</div>
+<div class="md:col-span-4 glass-card p-10 rounded-[3rem] flex flex-col gap-8 reveal-on-scroll">
+<div class="w-14 h-14 rounded-2xl bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-4xl">payments</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl font-bold mb-4">Cost Analysis</h3>
+<p class="text-on-surface-variant/70 leading-relaxed">Calculate exactly how much compute and egress bandwidth each zombie endpoint is wasting every month.</p>
+</div>
+</div>
+<div class="md:col-span-4 glass-card p-10 rounded-[3rem] flex flex-col gap-8 reveal-on-scroll">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl">code_blocks</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl font-bold mb-4">Snippets</h3>
+<p class="text-on-surface-variant/70 leading-relaxed">Auto-generate Nginx 'deny' blocks or Cloudflare Worker scripts to block traffic.</p>
+</div>
+</div>
+<div class="md:col-span-4 glass-card p-10 rounded-[3rem] flex flex-col gap-8 reveal-on-scroll">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl">download</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl font-bold mb-4">Smart Export</h3>
+<p class="text-on-surface-variant/70 leading-relaxed">Download reports in JSON, CSV, or formatted PDF for architectural review boards.</p>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary p-10 rounded-[3rem] flex flex-col gap-8 text-white reveal-on-scroll shadow-[0_20px_60px_-15px_rgba(143,75,211,0.3)]">
+<div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-4xl">verified_user</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl font-bold mb-4">Secure by Design</h3>
+<p class="text-white/80 leading-relaxed">Local processing means your secrets never touch our servers. SOC2 compliant by nature.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Focus (OLED Black) -->
+<section class="py-48 bg-black relative overflow-hidden">
+<div class="absolute inset-0 hero-glow opacity-10 pointer-events-none"></div>
+<div class="max-w-4xl mx-auto px-8 text-center reveal-on-scroll">
+<div class="inline-flex items-center gap-3 bg-white/5 p-4 rounded-full mb-12 border border-white/10">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-label font-bold uppercase tracking-[0.3em] text-[10px]">Security First Protocol</span>
+</div>
+<h2 class="font-headline text-5xl md:text-7xl font-bold mb-10 text-gradient leading-tight">"Runs 100% in your browser"</h2>
+<p class="text-xl md:text-2xl text-on-surface-variant/60 leading-relaxed font-body">
+            We believe in zero-trust data analysis. Deadlog uses client-side WebAssembly to process data. We don't store your logs, we don't track your endpoints, and we certainly don't sell your metadata.
+        </p>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-48 px-8 max-w-7xl mx-auto">
+<div class="text-center mb-32 reveal-on-scroll">
+<h2 class="font-headline text-5xl font-bold mb-6 tracking-tight">Transparent Pricing</h2>
+<p class="text-on-surface-variant/60 text-lg">No hidden fees. No per-log charges. Just clarity.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
+<!-- Free -->
+<div class="glass-card p-12 rounded-[2.5rem] flex flex-col reveal-on-scroll">
+<h3 class="font-headline text-2xl font-bold mb-4 opacity-70">Free</h3>
+<div class="flex items-baseline gap-2 mb-12">
+<span class="text-5xl font-bold">$0</span>
+<span class="text-on-surface-variant/50 text-sm">/mo</span>
+</div>
+<ul class="space-y-6 mb-16 flex-grow text-on-surface-variant/80 font-label text-sm">
+<li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-xl">check_circle</span> Up to 10MB Logs</li>
+<li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-xl">check_circle</span> Basic Classification</li>
+<li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-xl">check_circle</span> Browser-only engine</li>
+</ul>
+<button class="w-full py-5 rounded-full border border-white/10 font-headline font-bold hover:bg-white/5 transition-all">Start Free</button>
+</div>
+<!-- Pro -->
+<div class="glass-card p-12 rounded-[2.5rem] border-2 border-primary/50 relative flex flex-col shadow-[0_0_80px_rgba(143,75,211,0.15)] scale-105 z-10 reveal-on-scroll">
+<div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em]">Most Popular</div>
+<h3 class="font-headline text-2xl font-bold mb-4">Pro</h3>
+<div class="flex items-baseline gap-2 mb-12">
+<span class="text-5xl font-bold">$29</span>
+<span class="text-on-surface-variant/50 text-sm">/mo</span>
+</div>
+<ul class="space-y-6 mb-16 flex-grow font-label text-sm">
+<li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span> Unlimited Log Size</li>
+<li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span> Neural Cost Detection</li>
+<li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span> Terraform/IaC Export</li>
+<li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span> Priority Support</li>
+</ul>
+<button class="w-full py-5 rounded-full bg-primary text-white font-headline font-bold hover:scale-105 transition-all shadow-lg shadow-primary/20">Go Pro</button>
+</div>
+<!-- Lifetime -->
+<div class="glass-card p-12 rounded-[2.5rem] flex flex-col reveal-on-scroll">
+<h3 class="font-headline text-2xl font-bold mb-4 opacity-70">Lifetime</h3>
+<div class="flex items-baseline gap-2 mb-12">
+<span class="text-5xl font-bold">$199</span>
+<span class="text-on-surface-variant/50 text-sm">/once</span>
+</div>
+<ul class="space-y-6 mb-16 flex-grow text-on-surface-variant/80 font-label text-sm">
+<li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-xl">check_circle</span> All Pro Features</li>
+<li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-xl">check_circle</span> Lifetime Updates</li>
+<li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-xl">check_circle</span> Enterprise Support</li>
+</ul>
+<button class="w-full py-5 rounded-full border border-white/10 font-headline font-bold hover:bg-white/5 transition-all">Get Access</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-24 bg-black border-t border-white/5">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-8 gap-12">
+<div class="flex flex-col gap-4 items-center md:items-start">
+<span class="text-2xl font-bold tracking-tighter text-white font-headline">Deadlog</span>
+<span class="font-body text-[10px] uppercase tracking-[0.3em] text-on-surface-variant/40">© 2024 Deadlog Systems. Engineered for the void.</span>
+</div>
+<div class="flex gap-12">
+<a class="font-headline text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/40 hover:text-white transition-colors" href="#">Privacy</a>
+<a class="font-headline text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/40 hover:text-white transition-colors" href="#">Terms</a>
+<a class="font-headline text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/40 hover:text-white transition-colors" href="#">Security</a>
+<a class="font-headline text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/40 hover:text-white transition-colors" href="#">Status</a>
+</div>
+</div>
+</footer>
+<script>
+    // Reveal animation on scroll
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el));
+</script>
+</body></html>
