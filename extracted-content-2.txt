@@ -1,0 +1,4 @@
+Current directory: /home/user
+Files: ['.bash_logout', '.bashrc', '.profile', '.sudo_as_admin_successful']
+ZIP files found: []
+
